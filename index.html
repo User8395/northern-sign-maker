@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nothern sign maker</title>
+    <title>Railway sign maker</title>
+    <link rel="stylesheet" href="fonts.css">
     <style>
-        @font-face {
-            font-family: 'droge';
-            src: url("droge.ttf");
-        }
-
         body {
             background-color: gray;
         }
 
         #image-container {
-            width: 1417px;
-            height: 472px;
-            background-image: url('base.png');
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -26,24 +19,58 @@
 
         #centered-text {
             color: black;
-            font-family: 'droge';
             font-size: 200px;
+            /* transform: translateY(50%); */
             text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div id="image-container">
+    <div id="image-container" style="display: none;">
         <div id="centered-text"></div>
     </div>
     <br>
-    <input id="text" type="text">
-    <input type="submit" value="Write" id="write">
-
+    <label for="dropdown" style="color: white;">Railway company: </label>
+    <select name="dropdown" id="dropdown">
+        <option value="northern">Northern Railway Association</option>
+        <option value="northwest">North Western Mainline Rail</option>
+    </select>
+    <br>
+    <br>
+    <input id="text" type="text" placeholder="Sign text">
+    <input type="submit" value="Generate" id="write">
+    <script src="companies.js"></script>
     <script>
+        var dropdown = document.getElementById("dropdown")
+        var image = document.getElementById("image-container")
+        var text = document.getElementById("centered-text")
         document.getElementById("write").onclick = function() {
-            document.getElementById("centered-text").textContent = document.getElementById("text").value
+            image.style.display = "block";
+            // for (var i = 0; i < companies.length; i++) {
+            //     if (dropdown.value == companies[i]) {
+            //         image.
+            //     }
+            // }
+            switch (dropdown.value) {
+                case "northern":
+                    image.style.width = "1417px"
+                    image.style.height = "472px"
+                    image.style.backgroundImage = 'url("northern.png")'
+                    text.style.fontFamily = "northern"
+                    text.style.transform = 'translateY(1px)'
+                    break;
+                case "northwest":
+                    image.style.width = "1424px"
+                    image.style.height = "712px"
+                    image.style.backgroundImage = 'url("northwestern.png")'
+                    text.style.fontFamily = "northwestern"
+                    text.style.transform = 'translateY(230px)'
+            
+                default:
+                    break;
+            }
+            text.textContent = document.getElementById("text").value
         }
     </script>
 </body>
