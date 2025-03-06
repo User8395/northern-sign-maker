@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nothern sign maker</title>
+    <style>
+        #image-container {
+            width: 1417px;
+            height: 472px;
+            background-image: url('base.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-color: black;
+            border-style: solid;
+        }
+
+        #centered-text {
+            color: black;
+            font-family: 'W-Droge';
+            font-size: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="image-container">
+        <div id="centered-text"></div>
+    </div>
+    <br>
+    <input id="text" type="text">
+    <input type="submit" value="Write" id="write">
+
+    <script>
+        document.getElementById("write").onclick = function() {
+            document.getElementById("centered-text").textContent = document.getElementById("text").value
+        }
+    </script>
+</body>
+
+</html>
