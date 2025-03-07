@@ -40,6 +40,13 @@
     <br>
     <input id="text" type="text" placeholder="Sign text">
     <input type="submit" value="Generate" id="write">
+    <br>
+    <br>
+    <label for="adjust" style="color: white;">Adjust text size</label>
+    <div id="adjust">
+        <button onclick="document.getElementById('centered-text').style.fontSize = (parseFloat(window.getComputedStyle(document.getElementById('centered-text')).fontSize) + 1) + 'px'">-</button>
+        <button onclick="document.getElementById('centered-text').style.fontSize = (parseFloat(window.getComputedStyle(document.getElementById('centered-text')).fontSize) - 1) + 'px'">+</button>
+    </div>
     <script src="companies.js"></script>
     <script>
         var dropdown = document.getElementById("dropdown")
